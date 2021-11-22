@@ -9,23 +9,37 @@ function onNumberButtonClick(ev) {
    var element = ev.target
    if (element.classList.contains("nmbbtn")) {
       display.innerText += element.innerText;
+      if(element.classList.contains("zap")) {
+        display.innerText=(display.innerText + '.')/1.0;
+    }
    }
    if (element.classList.contains("operation")) {
        operation=element.innerText;
-       n1=display.innerText/1;
+       n1=display.innerText/1.0;
        display.innerText=null;
    }
-       
+       if (element.classList.contains("C")) {
+        display.innerText=null; 
+       }
     //    if (element.classList.contains("nmbbtn")) {
         // display.innerText += element.innerText;
     //    }
+        if(element.classList.contains("plmin")) {
+            display.innerText=-1*display.innerText;
+        }
+        if(element.classList.contains("kv")) {
+            display.innerText=display.innerText * display.innerText;
+        }
+        if(element.classList.contains("obr")) {
+            display.innerText=1/ display.innerText;
+        }
         
 
      
      if (element==calcButtonResult) {
-        n2=display.innerText / 1;
+        n2=display.innerText / 1.0;
          if (operation== '-') {
-            display.innerText= n1 -(display.innerText / 1)
+            display.innerText= (n1/1.0) -(display.innerText / 1.0)
          }
          if (operation== '+') {
             display.innerText= n1+ n2
@@ -35,9 +49,8 @@ function onNumberButtonClick(ev) {
         }
         if (operation== '*') {
             display.innerText=n1*n2
+        }
         
-     
-    }
    }
 }
 
