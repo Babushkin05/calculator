@@ -25,6 +25,7 @@
     text-align: center;
     line-height: 30px;
     background-color: #e7e8e6;
+    border-radius: 5px;
 }
 #calcresbtn {
     height: 40px;
