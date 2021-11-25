@@ -8,11 +8,21 @@ var n1, n2, operation
 function onNumberButtonClick(ev) {
    var element = ev.target
    if (display.innerText<=9999999999999999) {
+    
    if (element.classList.contains("nmbbtn")) {
+    if(display.innerText==0 && element.classList.contains("nmbbtn")) {
+        display.innerText=element.innerText;
+    }
+    else{
+
+
       display.innerText += element.innerText;
+      
       if(element.classList.contains("zap")) {
         display.innerText=(display.innerText + '.')/1.0;
+
     }
+}
    }
    if (element.classList.contains("operation")) {
        operation=element.innerText;
@@ -61,6 +71,10 @@ function onNumberButtonClick(ev) {
 }
 else{
     display.innerText= "ERROR"
+    if (element.classList.contains("C")) {
+        display.innerText=0; 
+       }
+       
 }
 }
 
