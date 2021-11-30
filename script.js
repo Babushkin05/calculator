@@ -1,18 +1,25 @@
 const calc = document.getElementById("mainblock")
 const display = document.getElementById("display")
 const calcButtonResult = document.getElementById("calcresbtn")
-var n1, n2, operation
+var n1, n2, operation; 
+var flag =true;
 // console.log(calc, display, calcButtonResult)
 
 
 function onNumberButtonClick(ev) {
    var element = ev.target
-   if (display.innerText<=9999999999999999) {
+   //if (display.innerText<=9999999999999999) {
     
    if (element.classList.contains("nmbbtn")) {
-    if(display.innerText!=0  || element.classList.contains("zap")) {
+    if(display.innerText==0 && element.classList.contains("zap")) {
         display.innerText+=element.innerText;
+        flag=false
     }
+
+     else if(element.classList.contains("nmbbtn") && flag==false  ) {
+         display.innerText+=element.innerText;
+     }
+    
     else{
 
 
@@ -27,7 +34,7 @@ function onNumberButtonClick(ev) {
        display.innerText=null;
    }
        if (element.classList.contains("C")) {
-        display.innerText=null; 
+        display.innerText=0; 
        }
     //    if (element.classList.contains("nmbbtn")) {
         // display.innerText += element.innerText;
@@ -71,14 +78,14 @@ function onNumberButtonClick(ev) {
        
         
    }
-}
-else{
-    display.innerText= "ERROR"
-    if (element.classList.contains("C")) {
-        display.innerText=0; 
-       }
+//}
+// else{
+//     display.innerText= "ERROR"
+//     if (element.classList.contains("C")) {
+//         display.innerText=0; 
+//        }
        
-}
+// }
 }
 
 calc.addEventListener("click", onNumberButtonClick)
