@@ -10,18 +10,15 @@ function onNumberButtonClick(ev) {
    if (display.innerText<=9999999999999999) {
     
    if (element.classList.contains("nmbbtn")) {
-    if(display.innerText==0 && element.classList.contains("nmbbtn")) {
-        display.innerText=element.innerText;
+    if(display.innerText!=0  || element.classList.contains("zap")) {
+        display.innerText+=element.innerText;
     }
     else{
 
 
-      display.innerText += element.innerText;
+      display.innerText = element.innerText;
       
-      if(element.classList.contains("zap")) {
-        display.innerText=(display.innerText + '.')/1.0;
-
-    }
+      
 }
    }
    if (element.classList.contains("operation")) {
@@ -61,6 +58,12 @@ function onNumberButtonClick(ev) {
         }
         if (operation== '/') {
             display.innerText = n1/n2
+            if(n2==0) {
+                display.innerText= "ERROR"
+    if (element.classList.contains("C")) {
+        display.innerText=0; 
+       }
+            }
         }
         if (operation== '*') {
             display.innerText=n1*n2
