@@ -56,7 +56,9 @@
     text-align: center;
     width: 215px;
     height: 33px;
-    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     /* margin-top: 15px; */
  }
  .calcbtn:hover,
