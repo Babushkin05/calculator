@@ -11,13 +11,16 @@ function onNumberButtonClick(ev) {
    //if (display.innerText<=9999999999999999) {
     
    if (element.classList.contains("nmbbtn")) {
-    if(display.innerText==0 && element.classList.contains("zap")) {
+    if( element.classList.contains("zap")) {
         display.innerText+=element.innerText;
         flag=false
     }
 
-     else if(element.classList.contains("nmbbtn") && flag==false  ) {
+     else if( flag==false  ) {
          display.innerText+=element.innerText;
+     }
+     else if (display.innerText!=0) {
+        display.innerText+=element.innerText;
      }
     
     else{
