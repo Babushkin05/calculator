@@ -1,7 +1,8 @@
 const calc = document.getElementById("mainblock")
 const display = document.getElementById("display")
 const calcButtonResult = document.getElementById("calcresbtn")
-var n1, n2, operation; 
+var n1, n2, operation;
+let signs = ["+", "-", "*", "/"];
 var flag =true;
 // console.log(calc, display, calcButtonResult)
 
@@ -31,7 +32,10 @@ function onNumberButtonClick(ev) {
       
 }
    }
-   if (element.classList.contains("operation")) {
+
+ 
+   
+  if (element.classList.contains("operation")) {
        operation=element.innerText;
        n1=display.innerText/1.0;
        display.innerText=null;
@@ -91,4 +95,40 @@ function onNumberButtonClick(ev) {
 // }
 }
 
+//calc.addEventListener("click", onNumberButtonClick)
+
 calc.addEventListener("click", onNumberButtonClick)
+document.addEventListener('keydown', function(){
+console.log(event.key);
+  
+if (signs.includes(event.key)) {
+    first_number = parseFloat(display.innerText);
+    sign = event.key;
+    display.innerText = "";
+ }
+ else if (event.key == "." || event.key == ",") {
+    display.innerText += ".";
+ }
+ else if (event.key == "c" || event.key == "C") {
+    display.innerText = "0";
+ }
+ else if (event.key == "=" || event.key == "Enter") {
+    if (sign == "+") {
+       display.innerText = first_number + parseFloat(display.innerText);
+    }
+    else if (sign == "-") {
+       display.innerText = first_number - parseFloat(display.innerText);
+    }
+    else if (sign == "*") {
+       display.innerText = first_number * parseFloat(display.innerText);
+    }
+    else if (sign == "/") {
+       display.innerText = first_number / parseFloat(display.innerText);
+    }
+ }
+ else if (!isNaN(event.key)){
+    display.innerText = parseFloat(display.innerText + event.key);
+ }
+
+
+})
